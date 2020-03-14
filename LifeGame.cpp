@@ -11,9 +11,24 @@ void rawdate()  //游戏数据初始化
 }
 void RunLifeGame()   //进行游戏
 {
-    
-         
-    }
+	int i,j,s=0;
+    while(1)
+    {
+        for(i=1;i<High;i++)
+        {
+            for(j=1;j<Width;j++)
+                if(cellsmap[i][j]==1)
+                    printf("█");
+                else if(cellsmap[i][j]==0)
+                    printf("  ");
+            printf("\n");
+        }
+        for(i=1;i<High;i++)
+            for(j=1;j<Width;j++)
+            {     /*计算一个细胞周围8个格子内的活细胞总量*/ 
+                s=cellsmap[i-1][j-1]+cellsmap[i-1][j]+cellsmap[i-1][j+1]+cellsmap[i][j-1]+cellsmap[i][j+1]+cellsmap[i+1][j-1]+cellsmap[i+1][j]+cellsmap[i+1][j+1];
+			}
+	}
 }
 int main()
 {
