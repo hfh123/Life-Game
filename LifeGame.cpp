@@ -1,22 +1,25 @@
 #include "stdio.h"
 #include "string.h"
 #include "windows.h"
+#include <iostream>
+#include <time.h>
 #define High 20  //游戏尺寸
 #define Width 40
 int cellsmap[High][Width]; 
 int newcellsmap[High][Width];   
 void rawdate()  //游戏数据初始化
 {
+	srand((unsigned)time(NULL)); //srand()就是给rand()提供种子seed 
     int i,j;
     for(i=0;i<High+1;i++)
         for(j=0;j<Width+1;j++)
-            cellsmap[i][j]=1;   //细胞初始化状态为活细胞 
-}
+           cellsmap[i][j]=rand()%2;   //细胞初始状态随机
+} 
 void RunLifeGame()   //进行游戏
 {
 	int i,j,s=0;
     while(1)
-    {
+    {   system("cls"); 
         for(i=1;i<High;i++)
         {
             for(j=1;j<Width;j++)
@@ -50,7 +53,8 @@ void RunLifeGame()   //进行游戏
 		for(i=1;i<High;i++)
             for(j=1;j<Width;j++)
                 cellsmap[i][j]=newcellsmap[i][j];	
-	}
+	   Sleep(1000);  
+    } 
 }
 int main()
 {
