@@ -1,3 +1,6 @@
+#include "stdio.h"
+#include "string.h"
+#include "windows.h"
 #define High 20  //游戏尺寸
 #define Width 40
 int cellsmap[High][Width]; 
@@ -44,13 +47,16 @@ void RunLifeGame()   //进行游戏
                         newcellsmap[i][j]=0;
                 }
             }
-			
-		
+		for(i=1;i<High;i++)
+            for(j=1;j<Width;j++)
+                cellsmap[i][j]=newcellsmap[i][j];	
 	}
 }
 int main()
 {
-    
+    system("color f0");
+    rawdate();
+    RunLifeGame();
 }
 
 
