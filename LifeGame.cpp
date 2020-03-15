@@ -24,9 +24,9 @@ void RunLifeGame()   //╫Ьппсно╥
         {
             for(j=1;j<Width;j++)
                 if(cellsmap[i][j]==1)
-                    printf("╗─");
+                    printf("║Ж");
                 else if(cellsmap[i][j]==0)
-                    printf("  ");
+                    printf("║У");
             printf("\n");
         }
         for(i=1;i<High;i++)
