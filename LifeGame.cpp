@@ -38,21 +38,14 @@ void RunLifeGame()    //进行游戏
                 s=CellsMap[i-1][j-1]+CellsMap[i-1][j]+CellsMap[i-1][j+1]+CellsMap[i][j-1]+CellsMap[i][j+1]+CellsMap[i+1][j-1]+CellsMap[i+1][j]+CellsMap[i+1][j+1];
 				if(CellsMap[i][j]==1)   //如果细胞为生 
                 {
-                    if(s<2)
-                        NewCellsMap[i][j]=0; //如果周围活细胞少于2个，该细胞下一代转为死细胞
-                    else if(s>3)
-                        NewCellsMap[i][j]=0; //如果周围活细胞超过3个，该细胞下一代转为死细胞
-                    else if(s==2||s==3)
-                        NewCellsMap[i][j]=1; //如果周围活细胞为2个或3个，该细胞下一代状态不变 
-                    }     
-                else if(CellsMap[i][j]==0)  //如果细胞为死 
-                {
-                    if(s==3)
-                        NewCellsMap[i][j]=1;  //如果周围活细胞为3个，该细胞下一代转为活细胞,其它情况状态不变 
+                    if(s==3)            //周围有3个活细胞时，该细胞下一代转为生细胞 
+                          NewcellsMap[i][j]=1;
+                    else if(s==2)       //周围有2个活细胞时，该细胞下一代状态不变
+                          NewcellsMap[i][j]=cellsMap[i][j];
                     else
-                        NewCellsMap[i][j]=0;
-                }     
-            }
+                          NewcellsMap[i][j]=0;  //其它情况时，该细胞下一代转为死细胞
+                }
+			}
 		for(i=1;i<HIGH;i++)  //打印新一轮细胞地图 
             for(j=1;j<WIDTH;j++)
                 CellsMap[i][j]=NewCellsMap[i][j];	
