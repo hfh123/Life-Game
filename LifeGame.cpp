@@ -1,7 +1,7 @@
 #include "stdio.h"
 #include "string.h"
 #include "windows.h"
-#include <iostream>
+#include<stdlib.h>
 #include <time.h>
 #define HIGH 20  //сно╥Ёъ╢Г
 #define WIDTH 40
