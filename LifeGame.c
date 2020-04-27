@@ -11,8 +11,8 @@ int NewCellsMap[HIGH][WIDTH]; //下一代细胞地图
   
 void RawDate()   //游戏数据初始化
 {
+	 int i,j;
      srand((unsigned)time(NULL)); //srand()就是给rand()提供种子seed 
-     int i,j;
      for(i=0;i<HIGH+1;i++)
          for(j=0;j<WIDTH+1;j++)
             CellsMap[i][j]=rand()%2;   //细胞初始状态随机
